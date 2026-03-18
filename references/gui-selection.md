@@ -11,6 +11,7 @@ Choose `native-gui-reuse` when:
 - layout, wrapping, print, or spreadsheet constraints matter in the native tool
 - the user already works naturally in that tool
 - the native tool is effectively part of validation
+- diagnostics can live inside that same tool instead of a detached window
 
 Choose `custom-gui` when:
 
@@ -23,3 +24,4 @@ Choose `hybrid-gui` when:
 - management and editing are both important
 - the best editing surface is an existing tool
 - the best overview surface is a custom launcher or dashboard
+- field-level diagnostics still belong in the editing surface, while status and conflicts can live in the launcher

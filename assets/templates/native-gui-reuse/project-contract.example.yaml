@@ -26,6 +26,7 @@ human_surface:
   startup:
     kind: launcher-plus-double-click
   live_diagnostics: true
+  diagnostics_delivery: in-surface-inline-or-anchored
 
 ai_surface:
   mode: direct-file
@@ -74,5 +75,5 @@ launch:
 acceptance:
   - Humans can start editing without CLI.
   - AI can work directly on canonical data.
-  - Layout-related validation appears in the native GUI.
+  - Layout-related validation appears inside the native GUI, not a detached diagnostics window.
   - Generated artifacts remain separate from canonical data.

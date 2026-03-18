@@ -25,6 +25,7 @@ human_surface:
   startup:
     kind: launcher-or-browser
   live_diagnostics: true
+  diagnostics_delivery: in-surface-inline-or-anchored
 
 ai_surface:
   mode: service-api
@@ -74,4 +75,5 @@ acceptance:
   - Humans work through one dedicated management UI.
   - AI updates flow through the same canonical backend.
   - Search, state, and review are first-class in the UI.
+  - Validation stays in the same UI context as the edit or review action.
   - Conflicts are surfaced before overwrite.

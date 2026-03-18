@@ -25,6 +25,7 @@ human_surface:
   startup:
     kind: launcher-plus-double-click
   live_diagnostics: true
+  diagnostics_delivery: in-surface-inline-or-anchored
 
 ai_surface:
   mode: direct-file
@@ -73,6 +74,6 @@ launch:
 acceptance:
   - Humans can start editing without CLI.
   - AI can work through the canonical store.
-  - Validation appears in the human primary work surface.
+  - Validation appears inside the human primary work surface, not in a detached diagnostics window unless unavoidable.
   - Generated artifacts are separated from canonical data.
   - Conflicts are detected before overwrite.

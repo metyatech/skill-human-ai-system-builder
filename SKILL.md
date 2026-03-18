@@ -1,6 +1,6 @@
 ---
 name: human-ai-system-builder
-description: Design and build systems that humans and AI agents can both manage. Use when a request says a system must be operated, edited, or maintained by both humans and AI, especially when the request is short and Codex must infer the canonical data store, human GUI, AI editing surface, synchronization flow, conflict policy, validation surfaces, generated artifacts, and startup path.
+description: Design and build systems that humans and AI agents can both manage. Use when a request says a system must be operated, edited, or maintained by both humans and AI, especially when the request is short and Codex must infer the canonical data store, human GUI, AI editing surface, synchronization flow, conflict policy, validation surfaces, diagnostics delivery, generated artifacts, and startup path.
 ---
 
 # Human/AI system builder
@@ -53,6 +53,7 @@ For document, form, spreadsheet, and layout-sensitive systems, also read [refere
 - Prefer the most natural human GUI for the job, even when it is an existing application.
 - Reuse an existing GUI when that GUI is the truth for layout, wrapping, print, or visual constraints.
 - Show validation in the human primary work surface whenever practical.
+- Prefer diagnostics in the same active human GUI via inline markers, anchored panels, or in-surface sheets before introducing a separate diagnostics window.
 - Separate generated artifacts from canonical data.
 - Never rely on silent overwrites for human/AI conflicts.
 - Make the human launch path low-friction. Prefer launcher or double-click flows over CLI for routine human work.

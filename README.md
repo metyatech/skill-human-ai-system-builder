@@ -1,6 +1,6 @@
 # skill-human-ai-system-builder
 
-Agent skill for designing systems that humans and AI agents can both manage. It turns short requests into an explicit architecture covering the canonical data store, human GUI, AI editing surface, synchronization, conflict handling, validation, generated artifacts, and startup flow.
+Agent skill for designing systems that humans and AI agents can both manage. It turns short requests into an explicit architecture covering the canonical data store, human GUI, AI editing surface, synchronization, conflict handling, validation, diagnostics delivery, generated artifacts, and startup flow.
 
 ## Supported environments
 
@@ -34,6 +34,7 @@ $human-ai-system-builder
 - AI editing surface
 - sync and conflict policy
 - validation timing and location
+- same-surface diagnostics strategy
 - generated artifacts
 - human startup path
 

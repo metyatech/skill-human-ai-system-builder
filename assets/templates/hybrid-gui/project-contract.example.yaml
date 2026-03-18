@@ -25,6 +25,7 @@ human_surface:
   startup:
     kind: launcher
   live_diagnostics: true
+  diagnostics_delivery: editor-local-in-surface
 
 ai_surface:
   mode: direct-file
@@ -74,4 +75,4 @@ acceptance:
   - Humans can manage items without opening the editor first.
   - Humans can edit in the native document tool when needed.
   - AI works on the same canonical content.
-  - The launcher makes sync and conflict state visible.
+  - The launcher makes sync and conflict state visible while field-level diagnostics stay in the editor surface.

@@ -5,6 +5,7 @@ Validation should appear where the human is already working whenever practical.
 Validation layers:
 
 - live diagnostics in the primary human work surface
+- live diagnostics should stay in the same active GUI surface when that surface can host inline, anchored, or in-document feedback
 - save-time validation before apply
 - build-time validation before artifact generation
 - commit-time validation in the repository

@@ -9,7 +9,7 @@ Typical shape:
 - human surface B: existing editing tool
 - ai surface: canonical files or service adapter
 - sync: explicit handoff between management and editing surfaces
-- validation: split between launcher status and editor-local diagnostics
+- validation: split between launcher status and editor-local diagnostics, with editor-local diagnostics kept inside the editing surface when possible
 
 Good fit:
 
