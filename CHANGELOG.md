@@ -9,3 +9,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added the initial `human-ai-system-builder` skill.
 - Added project contract, GUI selection, and pattern references.
+- Added deeper guidance for canonical store selection, sync/conflict, validation/launch, and minimal questions.
+- Added reusable example contracts for native GUI reuse, custom GUI, and hybrid GUI patterns.

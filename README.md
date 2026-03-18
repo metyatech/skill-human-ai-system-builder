@@ -37,6 +37,14 @@ $human-ai-system-builder
 - generated artifacts
 - human startup path
 
+## Included design assets
+
+- `project-contract` template and JSON schema
+- GUI selection guidance
+- reusable pattern references for `native-gui-reuse`, `custom-gui`, and `hybrid-gui`
+- example contracts under `assets/templates/`
+- guidance for canonical store, sync/conflict, validation/launch, and minimal architectural questions
+
 ## Development
 
 Required tools:

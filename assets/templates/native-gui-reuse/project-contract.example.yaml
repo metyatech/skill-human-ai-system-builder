@@ -1,0 +1,78 @@
+version: 1
+
+system:
+  name: layout-sensitive-document-system
+  domain: structured-document
+  summary: >
+    Humans edit through an existing document GUI while AI works on a text-based canonical store.
+
+actors:
+  human:
+    role: editor
+    primary_goal: Edit in the native document tool and see real layout constraints.
+  ai:
+    role: assistant
+    primary_goal: Read and write the canonical structured source.
+
+canonical_store:
+  kind: yaml
+  location: data/{record_id}.yaml
+  version_controlled: true
+
+human_surface:
+  mode: existing-gui
+  kind: excel
+  editable_artifact: workbooks/{record_id}.edit.xlsx
+  startup:
+    kind: launcher-plus-double-click
+  live_diagnostics: true
+
+ai_surface:
+  mode: direct-file
+  kind: yaml
+  target: canonical_store
+
+sync:
+  source_of_truth: canonical_store
+  edit_flow:
+    human: native-gui-save-applies-to-canonical-store
+    ai: direct-edit
+  refresh_flow:
+    human_surface: canonical-store-refreshes-editor
+  conflict_policy:
+    detection: base-hash
+    resolution: manual
+    auto_overwrite: false
+
+validation:
+  live:
+    enabled: true
+    surface: human_surface
+  save:
+    enabled: true
+  build_gate:
+    enabled: true
+
+outputs:
+  generated_dir: generated/{record_id}
+  artifacts:
+    - final-excel
+    - pdf
+  gitignored: true
+
+gui_selection:
+  strategy: native-gui-reuse
+  reason: Human validation depends on the existing document GUI.
+
+launch:
+  human_entrypoints:
+    - launcher
+    - editable-workbook
+  ai_entrypoint:
+    - agent-request
+
+acceptance:
+  - Humans can start editing without CLI.
+  - AI can work directly on canonical data.
+  - Layout-related validation appears in the native GUI.
+  - Generated artifacts remain separate from canonical data.

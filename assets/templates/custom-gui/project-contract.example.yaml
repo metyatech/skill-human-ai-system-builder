@@ -1,0 +1,77 @@
+version: 1
+
+system:
+  name: workflow-oriented-management-system
+  domain: operational-records
+  summary: >
+    Humans and AI both work through a system where records, status, and workflow dominate.
+
+actors:
+  human:
+    role: operator
+    primary_goal: Manage records, search, review, and approve through a dedicated app.
+  ai:
+    role: assistant
+    primary_goal: Propose, enrich, and update structured records through the canonical backend.
+
+canonical_store:
+  kind: database
+  location: app-db
+  version_controlled: false
+
+human_surface:
+  mode: custom-gui
+  kind: webapp
+  startup:
+    kind: launcher-or-browser
+  live_diagnostics: true
+
+ai_surface:
+  mode: service-api
+  kind: api
+  target: canonical_store
+
+sync:
+  source_of_truth: canonical_store
+  edit_flow:
+    human: application-write
+    ai: api-write
+  refresh_flow:
+    human_surface: realtime-or-on-demand
+  conflict_policy:
+    detection: record-version
+    resolution: application-mediated
+    auto_overwrite: false
+
+validation:
+  live:
+    enabled: true
+    surface: human_surface
+  save:
+    enabled: true
+  build_gate:
+    enabled: true
+
+outputs:
+  generated_dir: generated/
+  artifacts:
+    - export
+    - report
+  gitignored: true
+
+gui_selection:
+  strategy: custom-gui
+  reason: Operational management is the primary human workflow.
+
+launch:
+  human_entrypoints:
+    - launcher
+    - browser
+  ai_entrypoint:
+    - agent-request
+
+acceptance:
+  - Humans work through one dedicated management UI.
+  - AI updates flow through the same canonical backend.
+  - Search, state, and review are first-class in the UI.
+  - Conflicts are surfaced before overwrite.

@@ -25,6 +25,14 @@ Use [references/gui-selection.md](references/gui-selection.md) to choose one of 
 - [references/pattern-custom-gui.md](references/pattern-custom-gui.md)
 - [references/pattern-hybrid-gui.md](references/pattern-hybrid-gui.md)
 
+For core architecture choices, also use:
+
+- [references/canonical-store-selection.md](references/canonical-store-selection.md)
+- [references/sync-and-conflict.md](references/sync-and-conflict.md)
+- [references/validation-and-launch.md](references/validation-and-launch.md)
+- [references/minimal-questions.md](references/minimal-questions.md)
+- [references/deliverables.md](references/deliverables.md)
+
 For document, form, spreadsheet, and layout-sensitive systems, also read [references/domain-structured-docs.md](references/domain-structured-docs.md).
 
 ## Workflow
@@ -35,7 +43,8 @@ For document, form, spreadsheet, and layout-sensitive systems, also read [refere
 4. Decide the canonical store and AI editing surface.
 5. Specify sync, conflict, validation, artifacts, and launch flow.
 6. Ask only the irreducible questions that materially change architecture.
-7. Produce the architecture summary, chosen pattern, contract, scaffold plan, and implementation sequence.
+7. Choose or adapt the nearest reusable template under [assets/templates](assets/templates).
+8. Produce the architecture summary, chosen pattern, contract, scaffold plan, and implementation sequence.
 
 ## Design rules
 
@@ -60,3 +69,4 @@ Produce these outputs unless the user explicitly narrows scope:
 - acceptance criteria
 
 Use [assets/project-contract.schema.json](assets/project-contract.schema.json) when a machine-readable schema is needed.
+Use the example contracts under [assets/templates](assets/templates) when the request is close to an existing pattern.
