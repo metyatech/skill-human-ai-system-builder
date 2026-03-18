@@ -1,0 +1,78 @@
+version: 1
+
+system:
+  name: example-system
+  domain: structured-document
+  summary: >
+    Humans and AI agents both manage the same system.
+
+actors:
+  human:
+    role: editor
+    primary_goal: Edit through the most natural GUI.
+  ai:
+    role: assistant
+    primary_goal: Read and write the canonical store.
+
+canonical_store:
+  kind: yaml
+  location: data/{id}.yaml
+  version_controlled: true
+
+human_surface:
+  mode: existing-gui
+  kind: excel
+  startup:
+    kind: launcher-plus-double-click
+  live_diagnostics: true
+
+ai_surface:
+  mode: direct-file
+  kind: yaml
+  target: canonical_store
+
+sync:
+  source_of_truth: canonical_store
+  edit_flow:
+    human: apply-on-save
+    ai: direct-edit
+  refresh_flow:
+    human_surface: reload-or-refresh
+  conflict_policy:
+    detection: explicit
+    resolution: manual
+    auto_overwrite: false
+
+validation:
+  live:
+    enabled: true
+    surface: human_surface
+  save:
+    enabled: true
+  build_gate:
+    enabled: true
+
+outputs:
+  generated_dir: generated/
+  artifacts:
+    - excel
+    - pdf
+  gitignored: true
+
+gui_selection:
+  strategy: native-gui-reuse
+  reason: Existing GUI is the most truthful editing and validation surface.
+
+launch:
+  human_entrypoints:
+    - launcher
+    - direct-editor-open
+  ai_entrypoint:
+    - agent-request
+
+acceptance:
+  - Humans can start editing without CLI.
+  - AI can work through the canonical store.
+  - Validation appears in the human primary work surface.
+  - Generated artifacts are separated from canonical data.
+  - Conflicts are detected before overwrite.

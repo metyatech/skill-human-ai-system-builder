@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human + AI Systems"
+  short_description: "Design systems managed by humans and AI"
+  default_prompt: "Use $human-ai-system-builder to design a system that humans and AI agents can both manage."

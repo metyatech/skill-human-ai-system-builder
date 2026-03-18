@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/metyatech/skill-human-ai-system-builder/assets/project-contract.schema.json",
+  "title": "Project Contract",
+  "type": "object",
+  "required": [
+    "version",
+    "system",
+    "actors",
+    "canonical_store",
+    "human_surface",
+    "ai_surface",
+    "sync",
+    "validation",
+    "outputs",
+    "gui_selection",
+    "launch",
+    "acceptance"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "system": {
+      "type": "object",
+      "required": ["name", "domain", "summary"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "domain": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "actors": {
+      "type": "object",
+      "required": ["human", "ai"],
+      "additionalProperties": true
+    },
+    "canonical_store": {
+      "type": "object",
+      "required": ["kind", "location", "version_controlled"],
+      "properties": {
+        "kind": { "type": "string", "minLength": 1 },
+        "location": { "type": "string", "minLength": 1 },
+        "version_controlled": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "human_surface": {
+      "type": "object",
+      "required": ["mode", "kind"],
+      "properties": {
+        "mode": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "minLength": 1 },
+        "live_diagnostics": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "ai_surface": {
+      "type": "object",
+      "required": ["mode", "kind", "target"],
+      "properties": {
+        "mode": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "sync": {
+      "type": "object",
+      "required": ["source_of_truth", "conflict_policy"],
+      "additionalProperties": true
+    },
+    "validation": {
+      "type": "object",
+      "required": ["live"],
+      "additionalProperties": true
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["generated_dir", "artifacts", "gitignored"],
+      "properties": {
+        "generated_dir": { "type": "string", "minLength": 1 },
+        "artifacts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "gitignored": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "gui_selection": {
+      "type": "object",
+      "required": ["strategy", "reason"],
+      "properties": {
+        "strategy": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "launch": {
+      "type": "object",
+      "required": ["human_entrypoints", "ai_entrypoint"],
+      "additionalProperties": true
+    },
+    "acceptance": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}
