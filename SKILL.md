@@ -5,27 +5,30 @@ description: Design and build systems that humans and AI agents can both manage.
 
 # Human/AI system builder
 
-Build a `project-contract` before implementation. Use [references/project-contract.md](references/project-contract.md) and [assets/project-contract.template.yaml](assets/project-contract.template.yaml) as the starting point.
+The agent MUST build a `project-contract` before implementation.
+Start from [references/project-contract.md](references/project-contract.md)
+and [assets/project-contract.template.yaml](assets/project-contract.template.yaml).
 
-Always make these decisions explicit:
+The agent MUST make every decision below explicit:
 
-- actors
-- canonical store
-- human surface
-- ai surface
-- sync direction and trigger
-- conflict detection and resolution
-- validation timing and location
-- generated artifacts
-- human startup flow
+- Actors.
+- Canonical store.
+- Human surface.
+- AI surface.
+- Sync direction and trigger.
+- Conflict detection and resolution.
+- Validation timing and location.
+- Generated artifacts.
+- Human startup flow.
 
-Use [references/gui-selection.md](references/gui-selection.md) to choose one of these patterns:
+The agent MUST use [references/gui-selection.md](references/gui-selection.md)
+to choose one of these patterns:
 
 - [references/pattern-native-gui-reuse.md](references/pattern-native-gui-reuse.md)
 - [references/pattern-custom-gui.md](references/pattern-custom-gui.md)
 - [references/pattern-hybrid-gui.md](references/pattern-hybrid-gui.md)
 
-For core architecture choices, also use:
+For core architecture choices, the agent MUST also use:
 
 - [references/canonical-store-selection.md](references/canonical-store-selection.md)
 - [references/sync-and-conflict.md](references/sync-and-conflict.md)
@@ -33,41 +36,59 @@ For core architecture choices, also use:
 - [references/minimal-questions.md](references/minimal-questions.md)
 - [references/deliverables.md](references/deliverables.md)
 
-For document, form, spreadsheet, and layout-sensitive systems, also read [references/domain-structured-docs.md](references/domain-structured-docs.md).
+For document, form, spreadsheet, and layout-sensitive systems, the
+agent MUST also read
+[references/domain-structured-docs.md](references/domain-structured-docs.md).
 
 ## Workflow
 
 1. Classify the domain and the primary constraints.
-2. Draft `project-contract`.
+2. Draft the `project-contract`.
 3. Choose the human GUI pattern.
 4. Decide the canonical store and AI editing surface.
 5. Specify sync, conflict, validation, artifacts, and launch flow.
-6. Ask only the irreducible questions that materially change architecture.
-7. Choose or adapt the nearest reusable template under [assets/templates](assets/templates).
-8. Produce the architecture summary, chosen pattern, contract, scaffold plan, and implementation sequence.
+6. Ask only the irreducible questions that materially change
+   architecture.
+7. Choose or adapt the nearest reusable template under
+   [assets/templates](assets/templates).
+8. Produce the architecture summary, chosen pattern, contract,
+   scaffold plan, and implementation sequence.
 
 ## Design rules
 
-- Keep one canonical source of truth.
-- Prefer machine-readable, diff-friendly canonical data for AI.
-- Prefer the most natural human GUI for the job, even when it is an existing application.
-- Reuse an existing GUI when that GUI is the truth for layout, wrapping, print, or visual constraints.
-- Show validation in the human primary work surface whenever practical.
-- Prefer diagnostics in the same active human GUI via inline markers, anchored panels, or in-surface sheets before introducing a separate diagnostics window.
-- Separate generated artifacts from canonical data.
-- Never rely on silent overwrites for human/AI conflicts.
-- Make the human launch path low-friction. Prefer launcher or double-click flows over CLI for routine human work.
+- The agent MUST keep one canonical source of truth.
+- The agent MUST prefer machine-readable, diff-friendly canonical
+  data for AI.
+- The agent MUST prefer the most natural human GUI for the job,
+  even when it is an existing application.
+- The agent MUST reuse an existing GUI when that GUI is the truth
+  for layout, wrapping, print, or visual constraints.
+- The agent MUST show validation in the human primary work
+  surface whenever practical.
+- The agent MUST prefer diagnostics in the same active human GUI
+  via inline markers, anchored panels, or in-surface sheets before
+  introducing a separate diagnostics window.
+- The agent MUST separate generated artifacts from canonical data.
+- The agent MUST NOT rely on silent overwrites for human/AI
+  conflicts.
+- The agent MUST make the human launch path low-friction. The
+  agent MUST prefer launcher or double-click flows over CLI for
+  routine human work.
 
 ## Outputs
 
-Produce these outputs unless the user explicitly narrows scope:
+The agent MUST produce these outputs unless the user explicitly
+narrows scope:
 
-- architecture summary
-- `project-contract`
-- chosen GUI pattern and rationale
-- scaffold layout
-- implementation plan
-- acceptance criteria
+- Architecture summary.
+- `project-contract`.
+- Chosen GUI pattern and rationale.
+- Scaffold layout.
+- Implementation plan.
+- Acceptance criteria.
 
-Use [assets/project-contract.schema.json](assets/project-contract.schema.json) when a machine-readable schema is needed.
-Use the example contracts under [assets/templates](assets/templates) when the request is close to an existing pattern.
+The agent MUST use
+[assets/project-contract.schema.json](assets/project-contract.schema.json)
+when a machine-readable schema is needed. The agent SHOULD use the
+example contracts under [assets/templates](assets/templates) when
+the request is close to an existing pattern.
