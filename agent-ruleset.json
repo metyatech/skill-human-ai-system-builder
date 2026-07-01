@@ -1,10 +1,9 @@
 {
-  "source": "github:metyatech/agent-rules@HEAD",
-  "domains": [],
-  "extra": [],
+  "sources": ["github:metyatech/agent-rules"],
+  "profile": "skill",
+  "output": "AGENTS.md",
   "claude": {
     "enabled": true,
     "output": "CLAUDE.md"
-  },
-  "output": "AGENTS.md"
+  }
 }
